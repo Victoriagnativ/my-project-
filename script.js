@@ -13,59 +13,50 @@ console.log(getsNames);
 getNames();
 var team = {};
 function createTeam(){
-function CreateEmployee(a,b,c) {
+function CreateEmployee(a,b) {
     
     this.name = a
     this.position = b
-    this.salary = c
+    this.salary = setSalary(b)
     this.tellAboutYourSelf = function () {
-        console.log(`Меня зовут ${this.name} и я - ${this.position}. Я зарабатываю ${this.salary}$.`) 
+        alert(`Меня зовут ${this.name} и я - ${this.position}. Я зарабатываю ${this.salary}$.`) 
         }
-        
+   
+   
             
 }
     
 
 for (var i = 0; i < positions.length; i++) {
        
-    team['employee' + i] = new CreateEmployee(getsNames[i], positions[i], setSalary());
+    team['employee' + i] = new CreateEmployee(getsNames[i], positions[i]);
     team['employee' + i].tellAboutYourSelf();
-
+    
     }
         
     
         
     
     console.log(team);
-};
+}; 
+ function setSalary(position) {
+    
+        if(position === 'Junior developer'||position === 'Junior QA'){
+            return Math.floor(Math.random() * (999-500+1)) + 500;
+        }else if (position === 'Middle developer'|| position === 'Middle QA' ){
+            return Math.floor(Math.random() * (1999-1500+1)) + 1500 ;
+ 
+        }else if (position === 'Senior developer'||position === 'Senior QA'){
+            return Math.floor(Math.random() * (2999-2500+1)) + 2500 ;
+        }else{
+            return Math.floor(Math.random() * (4499-4000+1)) + 4000;
+        }
+    
+}
 createTeam();
 
 
 
-
-function setSalary() {
-    for (var key in team){
-        // if (typeof (team[key])==='object') {
-        //     for (var i in team[key]) {
-                        
-         
-    if (team[key].position.indexOf('Junior')) {
-       alert(team[key].salary = Math.floor(Math.random() * 999) + 500);
-    } else if (team[key].position.indexOf('Middle')) {
-    team[key].salary = Math.floor(Math.random() * 1999) + 1500 ;
-
-    } else if (team[key].position.indexOf('Senior')) {
-    team[key].salary = Math.floor(Math.random() * 2999) + 2500 ;
-
-    } else {
-     team[key].salary = Math.floor(Math.random() * 4499) + 4000 ;   
-    }
-        
-    
- }
-};
-
-setSalary();
 
 function showTeam() {
     function ShowTeam() {
@@ -81,7 +72,7 @@ function showTeam() {
     
     team['showTeam'] = new ShowTeam();
     team['showTeam'].showTeam();
-    console.log(team);
+    
     
 }
 showTeam();
